@@ -1,5 +1,19 @@
 const sequelize = require('./db');
-const Proyectmanager = require('./proyect-manager');
+const Proyecto=require('./proyecto')
+const Tareas=require('./tareas')
+const Usuario=require('./usuario')
+const Rol=require('./rol')
+
+const Intervencion =require('./intervencion')
+
+//Definicion de las relaciones entre entidades//
+Usuario.belongToMany(Proyecto,{though:'participantes'})
+Proyecto.hasMany(Tarea)
+Tarea.belongsToMany(Usuario, {through: 'asignaciones'})
+Tarea.belongsToMany(Usuario, {as: 'intervenciones', through: Intervencion})
+Usuario.hasOne(Rol)
+Rol.hasMany(Rol, {as: 'heredados'})
+
 
 sequelize
   .authenticate()
