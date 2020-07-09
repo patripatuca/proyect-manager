@@ -1,10 +1,10 @@
 const sequelize = require('./db');
-const Proyecto=require('./proyecto')
-const Tareas=require('./tareas')
-const Usuario=require('./usuario')
-const Rol=require('./rol')
+const Proyecto=require('./proyectos');
+const Tareas=require('./tareas');
+const Usuario=require('./usuarios');
+const Rol=require('./roles');
 
-const Intervencion =require('./intervencion')
+const Intervencion =require('./intervenciones');
 
 //Definicion de las relaciones entre entidades//
 Usuario.belongToMany(Proyecto,{though:'participantes'})
