@@ -1,13 +1,13 @@
 const sequelize = require('./db');
 const Proyecto=require('./proyectos');
-const Tareas=require('./tareas');
+const Tarea=require('./tareas');
 const Usuario=require('./usuarios');
 const Rol=require('./roles');
 
 const Intervencion =require('./intervenciones');
 
 //Definicion de las relaciones entre entidades//
-Usuario.belongToMany(Proyecto,{though:'participantes'})
+Usuario.belongsToMany(Proyecto,{through:'participantes'})
 Proyecto.hasMany(Tarea)
 Tarea.belongsToMany(Usuario, {through: 'asignaciones'})
 Tarea.belongsToMany(Usuario, {as: 'intervenciones', through: Intervencion})
@@ -27,5 +27,5 @@ sequelize
 
   module.exports = {
       sequelize,
-      Proyectmanager
+      Proyecto
   }
