@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 
 
-const{login}=require("./controllers/autenticacion")
+const{login,controlAcceso}=require("./controllers/autenticacion")
 const {dashboard}=require('./controllers/dashboard')
 
 const app=express()
@@ -32,7 +32,7 @@ app.set('view engine','ejs')
 app.use(express.json())
 
 //definicion de rutas
-app.get('/',dashboard)
+app.get('/', controlAcceso(),dashboard)
 app.get("/login",(req,res)=>res.render("login"))
 app.post("/login", login)
 

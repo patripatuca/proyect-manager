@@ -16,8 +16,18 @@ Usuario.findOne({where: {email, password:md5(password)}})
       }
     })
 }
+//aquí se aplicaria el R.B.A.C para acceder a permisos.(controlAcesso)
+function controlAcceso(permiso) {
+  return function (req,res,next){
+    if( req.session.usuario) next()
+      else res.redirect("/login")
+
+    
+  }
+}
 
 
 module.exports = {
-    login
+    login,
+    controlAcceso
 }
