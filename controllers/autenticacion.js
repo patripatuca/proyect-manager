@@ -19,8 +19,22 @@ Usuario.findOne({where: {email, password:md5(password)}})
 //aquí se aplicaria el R.B.A.C para acceder a permisos.(controlAcesso)
 function controlAcceso(permiso) {
   return function (req,res,next){
-    if( req.session.usuario) next()
-      else res.redirect("/login")
+    const usuario=req.session.usuario
+    if( usuario) {
+     Rol.findOne({where:{id:usuario.rolId}})
+     .then (rol=>{
+
+//usaremos la function indexOf para buscare ese permiso. si no lo hay nos daba -1
+     if(rol.permisos.index.Of(permiso)!=-1)next()
+       else res.status (403).send("permiso denegado")
+     
+
+     })
+    
+    
+    }else{ 
+    res.redirect("/login")
+    
 
     
   }
