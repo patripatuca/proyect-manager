@@ -32,6 +32,7 @@ app.set('view engine','ejs')
 app.use(express.json())
 
 //definicion de rutas
+app.get('/',dashboard)
 app.get("/login",(req,res)=>res.render("login"))
 app.post("/login", login)
 

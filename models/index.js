@@ -27,5 +27,9 @@ sequelize
 
   module.exports = {
       sequelize,
-      Proyecto
+      Proyecto,
+      Usuario,
+      Tarea,
+      Rol,
+      Intervencion
   }
