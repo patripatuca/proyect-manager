@@ -11,7 +11,7 @@ Usuario.findOne({where: {email, password}})
         req.session.usuario = usuario;
         res.redirect("/");
       } else {
-        res.render("login");
+        res.render("login", {mensaje: "Usuario o contraseña incorrectos."});
       }
     })
 }
