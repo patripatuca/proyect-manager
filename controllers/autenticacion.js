@@ -32,7 +32,7 @@ function controlAcceso(permiso) {
      })
     
     
-    }else{ 
+    }else
     res.redirect("/login")
     
 
