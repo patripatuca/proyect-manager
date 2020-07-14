@@ -1,4 +1,4 @@
-const {Usuario} = require('../models');
+const {Usuario,Rol} = require('../models');
 const md5 =require('md5');
 
 function login(req, res) {
@@ -27,7 +27,9 @@ function controlAcceso(permiso) {
      .then (usuario=>{
 
 //usaremos la function indexOf para buscare ese permiso. si no lo hay nos daba -1
-     if(usuario && usuario.rol && usuario.rol.permisos.index.Of(permiso)!=-1)next()
+     if(usuario && usuario.rol &&usuario.rol.permiso && usuario.rol.permiso.indexOf(permiso)!=-1)next()
+
+
        else res.status (403).send("NO está autorizado")
      
 

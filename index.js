@@ -32,7 +32,7 @@ app.set('view engine','ejs')
 app.use(express.json())
 
 //definicion de rutas
-app.get('/', controlAcceso(),dashboard)
+app.get('/', controlAcceso("leer-tareas-asignadas"),dashboard)
 app.get("/login",(req,res)=>res.render("login"))
 app.post("/login", login)
 

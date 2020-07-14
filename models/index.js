@@ -10,6 +10,7 @@ const Intervencion =require('./intervenciones');
 Usuario.belongsToMany(Proyecto,{through:'participantes'})
 Proyecto.hasMany(Tarea)
 Tarea.belongsToMany(Usuario, {through: 'asignaciones'})
+Usuario.belongsToMany(Tarea,{through: 'asignaciones'})
 Tarea.belongsToMany(Usuario, {as: 'intervenciones', through: Intervencion})
 Usuario.belongsTo(Rol)
 Rol.hasMany(Rol, {as: 'heredados'})

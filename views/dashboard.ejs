@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de inicio</title>
+
+    <h1>Bienvenido, <%= usuario.nombre %></h1>
+    <h2>ëstas son tus tareas</h2>
+    <br>
+            <th>Tarea</th>
+            <th>fecha de inicio</th>
+            <th>fecha de vencimiento</th>
+          <br> 
 </head>
 <body>
-    <h1>Bienvenido, <%= usuario.nombre %></h1>
+   
+    <% for (var i=0; i<tareas.length; i++) { %>
+        <tr>
+            <td><%= tareas[i].nombre %></td>
+            <td><%= tareas[i].fechaInicio %></td>
+            <td><%= tareas[i].fechaVencimiento %></td>
+            
+        </tr>
+    <% } %>
+   
 </body>
 </html>

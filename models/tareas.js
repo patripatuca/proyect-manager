@@ -5,7 +5,7 @@ const Tareas = sequelize.define('tareas', {
     id:{type: Sequelize.INTEGER,primaryKey:true,autoIncremen:true},
     nombre: {type:Sequelize.STRING,allowNull:false},
     fechaInicio:{type:Sequelize.DATE,allowNull:false},
-    fechaVencimiebto:{type:Sequelize.DATE,allowNull:true},
+    fechaVencimiento:{type:Sequelize.DATE,allowNull:true},
     fechaFin:{type:Sequelize.DATE,allowNull:true}
 });
 
