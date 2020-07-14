@@ -21,12 +21,14 @@ function controlAcceso(permiso) {
   return function (req,res,next){
     const usuario=req.session.usuario
     if( usuario) {
-     Rol.findOne({where:{id:usuario.rolId}})
-     .then (rol=>{
+     Usuario.findByPk(usuario.id,{
+       include:[Rol]
+     })
+     .then (usuario=>{
 
 //usaremos la function indexOf para buscare ese permiso. si no lo hay nos daba -1
-     if(rol.permisos.index.Of(permiso)!=-1)next()
-       else res.status (403).send("permiso denegado")
+     if(usuario && usuario.rol && usuario.rol.permisos.index.Of(permiso)!=-1)next()
+       else res.status (403).send("NO está autorizado")
      
 
      })
