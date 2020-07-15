@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
     <h1>Bienvenido, <%= usuario.nombre %></h1>
     <h2>ëstas son tus tareas</h2>
-    <br>
+
+    <table class="table">
+     
             <th>Tarea</th>
             <th>fecha de inicio</th>
             <th>fecha de vencimiento</th>
+            
           <br> 
 </head>
 <body>
    
     <% for (var i=0; i<tareas.length; i++) { %>
         <tr>
-            <td><%= tareas[i].nombre %></td>
+            
+            <td><a href="<%= tareas[i].link %>"><%= tareas[i].nombre %></a></td>
             <td><%= tareas[i].fechaInicio %></td>
             <td><%= tareas[i].fechaVencimiento %></td>
             
