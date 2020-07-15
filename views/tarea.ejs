@@ -21,6 +21,7 @@
     <% if (tarea.fechaFin) { %>
         <p>Fecha de finalización: <%= tarea.fechaFin %></p>
     <% } else { %>
+        
         <form action="<%= tarea.link %>" method="post">
             <% if (!tarea.iniciada) { %>
                 <button class="btn btn-outline-success" name="accion" type="submit" value="start">Iniciar reloj</button>
