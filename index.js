@@ -10,6 +10,7 @@ const cookieSession = require('cookie-session');
 const{login,controlAcceso}=require("./controllers/autenticacion")
 const {dashboard}=require('./controllers/dashboard')
 const {mostrarTarea, registrarAccionTarea} = require('./controllers/tareas')
+const {crearProyecto}=require('./api/proyectos')
 
 
 const app=express()
@@ -40,6 +41,9 @@ app.post("/login", login)
 
 app.get('/tareas/:id', mostrarTarea)
 app.post('/tareas/:id',registrarAccionTarea)
+
+//metodos de la api
+app.post('api/proyectos',crearProyecto)
 
 
 app.listen(3000)
