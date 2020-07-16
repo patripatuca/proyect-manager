@@ -9,7 +9,8 @@ const cookieSession = require('cookie-session');
 
 const{login,controlAcceso}=require("./controllers/autenticacion")
 const {dashboard}=require('./controllers/dashboard')
-const {mostrarTarea} = require('./controllers/tareas')
+const {mostrarTarea, registrarAccionTarea} = require('./controllers/tareas')
+
 
 const app=express()
 
@@ -38,6 +39,7 @@ app.get("/login",(req,res)=>res.render("login"))
 app.post("/login", login)
 
 app.get('/tareas/:id', mostrarTarea)
+app.post('/tareas/:id',registrarAccionTarea)
 
 
 app.listen(3000)

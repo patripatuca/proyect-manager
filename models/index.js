@@ -12,6 +12,8 @@ Proyecto.hasMany(Tarea)
 Tarea.belongsToMany(Usuario, {through: 'asignaciones'})
 Usuario.belongsToMany(Tarea,{through: 'asignaciones'})
 Tarea.belongsToMany(Usuario, {as: 'intervenciones', through: Intervencion})
+Intervencion.belongsTo(Usuario)
+Intervencion.belongsTo(Tarea)
 Usuario.belongsTo(Rol)
 Rol.hasMany(Rol, {as: 'heredados'})
 
