@@ -10,7 +10,7 @@ const cookieSession = require('cookie-session');
 const{login,controlAcceso}=require("./controllers/autenticacion")
 const {dashboard}=require('./controllers/dashboard')
 const {mostrarTarea, registrarAccionTarea} = require('./controllers/tareas')
-const {crearProyecto}=require('./api/proyectos')
+const {crearProyecto,listarProyecto,leerProyecto, modificarProyecto, eliminarProyecto}=require('./api/proyectos')
 
 
 const app=express()
@@ -18,6 +18,7 @@ const app=express()
 
 //se pone por que el formulario nos dara los datos en este formato//
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 
 //almacenamiento de datos//
 app.use(cookieParser());
@@ -43,7 +44,11 @@ app.get('/tareas/:id', mostrarTarea)
 app.post('/tareas/:id',registrarAccionTarea)
 
 //metodos de la api
-app.post('api/proyectos',crearProyecto)
+app.post('/api/proyectos',crearProyecto)
+app.get('/api/proyectos',listarProyecto)
+app.get('/api/proyectos/:id',leerProyecto)
+app.put('/api/proyectos/:id',modificarProyecto)
+app.delete('/api/proyectos/:id',eliminarProyecto)
 
 
 app.listen(3000)
