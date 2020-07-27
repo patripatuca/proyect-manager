@@ -1,6 +1,14 @@
 const { Tarea, Intervencion, Usuario } = require("../models");
 const moment = require("moment");
 
+/**
+ * Controladpr para mostrar la informacion de una tarea en concreto. L ainformación de la tarea se obtiene mediante una consulata de atos con todas las intervenciones asocoadas a dicha tarea.
+ * @param {*} req Petición , que contiene el parametro del ID de la tarea.
+ * @param {*} res Respuesta.
+ * 
+ * La consulta trabaja de forma asíncrona , de tal modo que los datos de la tarea se obtien en una promesa.
+ * Los datos obtenido se visualizan en la vista.
+ */
 function mostrarTarea(req, res) {
     const id = req.params.id;
     Tarea.findByPk(id, {include: ['intervenciones']})
