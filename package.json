@@ -4,7 +4,9 @@
   "description": "reparticion de tareas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "mocha",
+    "jsdoc": "jsdoc -d docs -r api controllers models"
   },
   "author": "patricia",
   "license": "ISC",
@@ -19,5 +21,11 @@
     "moment": "^2.27.0",
     "save": "^2.4.0",
     "sequelize": "^6.3.0"
+  },
+  "devDependencies": {
+    "chromedriver": "^84.0.1",
+    "jsdoc": "^3.6.5",
+    "mocha": "^8.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
